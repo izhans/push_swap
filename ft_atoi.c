@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 03:16:18 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/06 12:49:43 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:21:40 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 
 static int	ft_isspace(int c);
 static int	ft_isdigit(int c);
-void ft_exit(); // TODO move to another file
 
-int	ft_atoi(char *str)
+// TODO change name -> ft_init_arg ?
+// ! this function is getting many responsibilities
+/**
+ * @brief takes an string argument, converts it to an int
+ * 		checks if the number is valid (is an int and its not duplicated)
+ * 		and adds it to the stack
+ */
+// ? puedo ahorrarme el devolver el numero ?? total, ya estoy metiendolo en el stack aqui
+int	ft_atoi(char *str, t_stack *stack)
 {
 	long	n;
 	int		sign;
@@ -40,12 +47,13 @@ int	ft_atoi(char *str)
 
 	n *= sign;
 	// errores: ha terminado de sacar numero y quedan caracteres, mayor que MAX_INT, menor que MIN_INT, duplicado
-	// TODO error duplicados
-	if (*str || n > INT_MAX || n < INT_MIN)
+	if (*str || n > INT_MAX || n < INT_MIN || ft_value_exists(stack, n))
 	{
 		printf("error %s < %ld", str, n);
 		ft_exit();
 	}
+
+	ft_new_node(stack, n);
 	
 	return (n);
 }
@@ -58,10 +66,4 @@ static int	ft_isspace(int c)
 static int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
-}
-
-void ft_exit()
-{
-	// TODO print Error\n in stderror
-	exit(1);
 }
