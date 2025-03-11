@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 09:24:22 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/11 20:39:44 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/11 21:16:44 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,15 @@ typedef struct stack
 } t_stack;
 
 
-//movs (pa, ra, ...)
+// ##### movs (pa, ra, ...) #####
+// rotate
 void ft_ra(t_stack *stack_a);
 void ft_rb(t_stack *stack_b);
 void ft_rr(t_stack *stack_a, t_stack *stack_b);
+// reverse rotate
+void ft_rra(t_stack *stack_a);
+void ft_rrb(t_stack *stack_b);
+void ft_rrr(t_stack *stack_a, t_stack *stack_b);
 
 // utils
 #include <stdlib.h>
