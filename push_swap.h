@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 09:24:22 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/11 21:16:44 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/11 21:55:45 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ typedef struct stack
 
 
 // ##### movs (pa, ra, ...) #####
+// swap
+void ft_sa(t_stack *stack_a);
+void ft_sb(t_stack *stack_b);
+void ft_ss(t_stack *stack_a, t_stack *stack_b);
 // rotate
 void ft_ra(t_stack *stack_a);
 void ft_rb(t_stack *stack_b);
