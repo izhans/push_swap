@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:12:00 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/06 14:19:49 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/11 20:06:40 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,18 @@ void ft_new_node(t_stack *stack, int value)
 		stack->tail->next = new_node;
 		stack->tail = new_node;
 	}
+}
+
+void ft_print_stack(t_stack *stack, char c)
+{
+	t_node *current;
+
+	current = stack->head;
+	printf("stack_%c\n", c);
+	while (current)
+	{
+		printf("%d\n", current->value);
+		current = current->next;
+	}
+	printf("\n");
 }
