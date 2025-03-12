@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:12:00 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/12 13:30:52 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:26:55 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,49 @@ void ft_delete_stack(t_stack **stack)
 	}
 	free(*stack);
 	*stack = NULL;
+}
+
+int ft_stack_is_sorted(t_stack *stack)
+{
+	t_node	*node;
+
+	node = stack->head;
+	while (node->next && node->value < node->next->value)
+	{
+		node = node->next;
+	}
+
+	return (node->next == NULL); // si ha llegado al final de la lista, esta ordenado
+}
+
+t_node *ft_find_min(t_stack *stack)
+{
+	t_node	*node;
+	t_node	*min;
+
+	node = stack->head;
+	min = node;
+	while (node)
+	{
+		if (node->value < min->value)
+			min = node;
+		node = node->next;
+	}
+	return (min);
+}
+
+t_node *ft_find_max(t_stack *stack)
+{
+	t_node	*node;
+	t_node	*max;
+
+	node = stack->head;
+	max = node;
+	while (node)
+	{
+		if (node->value > max->value)
+			max = node;
+		node = node->next;
+	}
+	return (max);
 }
