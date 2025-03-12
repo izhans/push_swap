@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 03:16:18 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/06 14:21:40 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:58:07 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_atoi(char *str, t_stack *stack)
 	if (*str || n > INT_MAX || n < INT_MIN || ft_value_exists(stack, n))
 	{
 		printf("error %s < %ld", str, n);
-		ft_exit();
+		ft_free_and_exit(stack);
 	}
 
 	ft_new_node(stack, n);

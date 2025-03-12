@@ -6,20 +6,20 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:20:21 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/12 13:18:27 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:55:02 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /**
- * @brief inits stacks and populates stack_a with the program input
+ * @brief 	creates stacks, populates stack_a with the program input,
+ * 			frees stacks at the end
  * @returns 1 if no input params
  * 			0 if program execs till the end
  */
 int	main(int argc, char *argv[])
 {
-	int		n;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
@@ -29,21 +29,28 @@ int	main(int argc, char *argv[])
 	if (argc == 2)
 		argv = ft_split(*argv, ' ');
 	
-	// stacks init
+	// create stack_a
 	stack_a = malloc(sizeof(t_stack));
-	stack_b = malloc(sizeof(t_stack));
-	stack_b->head = NULL;
-	stack_b->tail = NULL;
+	stack_a->head = NULL;
+	stack_a->tail = NULL;
 	
 	// populate stack_a
 	while (*argv)
 	{
-		n = ft_atoi(*argv, stack_a); // ! n no se esta usando
+		ft_atoi(*argv, stack_a);
 		argv++;
 	}
 
+	// create stack_b
+	stack_b = malloc(sizeof(t_stack));
+	stack_b->head = NULL;
+	stack_b->tail = NULL;
+
 	ft_print_stack(stack_a, 'a');
 	ft_print_stack(stack_b, 'b');
-	
+
+	// free stacks
+	ft_delete_stack(&stack_a);
+	ft_delete_stack(&stack_b);
 	return (0);
 }

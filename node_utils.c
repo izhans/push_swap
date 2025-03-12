@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:12:00 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/11 20:06:40 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:30:52 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,34 @@ void ft_print_stack(t_stack *stack, char c)
 {
 	t_node *current;
 
-	current = stack->head;
 	printf("stack_%c\n", c);
+	if (!stack)
+	{
+		printf("no stack\n");
+		return ;
+	}
+	
+	current = stack->head;
 	while (current)
 	{
 		printf("%d\n", current->value);
 		current = current->next;
 	}
 	printf("\n");
+}
+
+void ft_delete_stack(t_stack **stack)
+{
+	t_node	*node;
+	t_node	*next;
+
+	node = (*stack)->head;
+	while (node)
+	{
+		next = node->next;
+		free(node);
+		node = next;
+	}
+	free(*stack);
+	*stack = NULL;
 }

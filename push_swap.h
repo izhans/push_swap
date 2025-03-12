@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 09:24:22 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/12 12:55:02 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:57:14 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 // utils
 # include <stdlib.h>
 # include <limits.h>
+# include <unistd.h>
 
 // ##### structs #####
 typedef struct s_node
@@ -52,10 +53,12 @@ void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
 
 // ##### utils #####
 void	ft_exit(void);
+void	ft_free_and_exit(t_stack *stack);
 // stack utils
 int		ft_value_exists(t_stack *stack, int value);
 void	ft_new_node(t_stack *stack, int value);
 void	ft_print_stack(t_stack *stack, char c);
+void	ft_delete_stack(t_stack **stack);
 // libft utils
 char	**ft_split(char const *s, char c);
 int		ft_atoi(char *str, t_stack *stack);
