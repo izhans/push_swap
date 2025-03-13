@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 09:24:22 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/12 16:46:44 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/13 18:27:42 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_node
 	struct s_node	*prev;
 	struct s_node	*next;
 	int				value;
+	unsigned int	index;
 }	t_node;
 
 typedef struct s_stack
@@ -52,7 +53,8 @@ void	ft_rrb(t_stack *stack_b);
 void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
 
 // ##### sorts #####
-void	ft_short_three(t_stack *stack);
+void	ft_sort_three(t_stack *stack);
+void	ft_sort_four(t_stack *stack_a, t_stack *stack_b);
 
 // ##### utils #####
 void	ft_exit(void);
@@ -65,6 +67,11 @@ void	ft_delete_stack(t_stack **stack);
 int		ft_stack_is_sorted(t_stack *stack);
 t_node	*ft_find_min(t_stack *stack);
 t_node	*ft_find_max(t_stack *stack);
+unsigned int	ft_stack_size(t_stack *stack);
+void	ft_assign_indexes(t_stack *stack);
+
+// rotate utils
+void	ft_cheapest_rotate_a(t_stack *stack, t_node *node);
 
 // libft utils
 char	**ft_split(char const *s, char c);

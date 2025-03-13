@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:12:00 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/12 17:26:55 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/13 18:27:12 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	ft_value_exists(t_stack *stack, int value)
 
 void ft_new_node(t_stack *stack, int value)
 {
-	t_node *new_node;
+	t_node 				*new_node;
+	static unsigned int	index;
 
 	new_node = malloc(sizeof(t_node));
 	new_node->value = value;
@@ -42,16 +43,17 @@ void ft_new_node(t_stack *stack, int value)
 	
 	if (!stack->head)
 	{
-		new_node->prev = NULL;
+		new_node->prev = NULL; // ? 1
 		stack->head = new_node;
-		stack->tail = new_node;
 	}
 	else
 	{	
-		new_node->prev = stack->tail;
+		new_node->prev = stack->tail; // ? 1 esto seria NULL en el caso de !stack->head ?
 		stack->tail->next = new_node;
-		stack->tail = new_node;
 	}
+	stack->tail = new_node;
+	new_node->index = index;
+	index++;
 }
 
 void ft_print_stack(t_stack *stack, char c)
@@ -68,7 +70,7 @@ void ft_print_stack(t_stack *stack, char c)
 	current = stack->head;
 	while (current)
 	{
-		printf("%d\n", current->value);
+		printf("%d: %d\n", current->index, current->value);
 		current = current->next;
 	}
 	printf("\n");
@@ -133,4 +135,34 @@ t_node *ft_find_max(t_stack *stack)
 		node = node->next;
 	}
 	return (max);
+}
+
+unsigned int ft_stack_size(t_stack *stack)
+{
+	unsigned int	size;
+	t_node 			*current;
+
+	size = 0;
+	current = stack->head; // ! segfaults if !stack
+	while (current)
+	{
+		size++;
+		current = current->next;
+	}
+	return (size);
+}
+
+void ft_assign_indexes(t_stack *stack)
+{
+	unsigned int	index;
+	t_node 			*current;
+
+	index = 0;
+	current = stack->head; // ! segfaults if !stack
+	while (current)
+	{
+		current->index = index;
+		index++;
+		current = current->next;
+	}
 }
