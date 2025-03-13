@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:20:21 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/13 18:55:07 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/13 19:33:06 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 		return (1);
 	argv++;
 	if (argc == 2)
-		argv = ft_split(*argv, ' ');
+		argv = ft_split(*argv, ' '); // TODO hay que liberar esta memoria
 	
 	// create stack_a
 	stack_a = malloc(sizeof(t_stack));
@@ -41,6 +41,12 @@ int	main(int argc, char *argv[])
 		argv++;
 	}
 
+	if (ft_stack_is_sorted(stack_a))
+	{
+		ft_delete_stack(&stack_a);
+		return (0);
+	}
+	
 	// create stack_b
 	stack_b = malloc(sizeof(t_stack));
 	stack_b->head = NULL;
@@ -49,8 +55,18 @@ int	main(int argc, char *argv[])
 	ft_print_stack(stack_a, 'a');
 	ft_print_stack(stack_b, 'b');
 
-	printf("stack_a size: %d - stack_b size: %d\n", ft_stack_size(stack_a), ft_stack_size(stack_b));
-	ft_sort_five(stack_a, stack_b);
+	unsigned int	numbers = ft_stack_size(stack_a);
+	if (numbers == 2)
+		ft_sa(stack_a);
+	else if (numbers == 3)
+		ft_sort_three(stack_a);
+	else if (numbers == 4)
+		ft_sort_four(stack_a, stack_b);
+	else if (numbers == 5)
+		ft_sort_five(stack_a, stack_b);
+	// else
+		// sort algorithm
+		
 	ft_print_stack(stack_a, 'a');
 	ft_print_stack(stack_b, 'b');
 	// free stacks
