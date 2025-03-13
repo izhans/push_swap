@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:18:22 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/13 18:35:08 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/13 18:51:32 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,4 @@ void	ft_cheapest_rotate_a(t_stack *stack, t_node *node)
 			index++;
 		}
 	}
-	ft_assign_indexes(stack);
 }

@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:20:21 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/13 18:08:46 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/13 18:55:07 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char *argv[])
 	ft_print_stack(stack_b, 'b');
 
 	printf("stack_a size: %d - stack_b size: %d\n", ft_stack_size(stack_a), ft_stack_size(stack_b));
-	ft_sort_four(stack_a, stack_b);
+	ft_sort_five(stack_a, stack_b);
 	ft_print_stack(stack_a, 'a');
 	ft_print_stack(stack_b, 'b');
 	// free stacks

@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 09:24:22 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/13 18:27:42 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/13 18:40:02 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
 // ##### sorts #####
 void	ft_sort_three(t_stack *stack);
 void	ft_sort_four(t_stack *stack_a, t_stack *stack_b);
+void	ft_sort_five(t_stack *stack_a, t_stack *stack_b);
 
 // ##### utils #####
 void	ft_exit(void);
