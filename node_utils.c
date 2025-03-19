@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:12:00 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/13 18:27:12 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/19 23:05:31 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,12 @@ void ft_print_stack(t_stack *stack, char c)
 	current = stack->head;
 	while (current)
 	{
-		printf("%d: %d\n", current->index, current->value);
+		printf("%d: %d ->", current->index, current->value);
+		if (!current->target)
+			printf("NULL");
+		else
+			printf("%d", current->target->value);
+		printf("\n");
 		current = current->next;
 	}
 	printf("\n");
@@ -163,6 +168,35 @@ void ft_assign_indexes(t_stack *stack)
 	{
 		current->index = index;
 		index++;
+		current = current->next;
+	}
+}
+
+t_node *ft_find_target_node(t_stack *stack, t_node *node)
+{
+	t_node	*current;
+	t_node	*target;
+
+	current = stack->head; // ! segfaults if !stack
+	target = ft_find_min(stack);
+	while (current)
+	{
+		if (current->value > node->value
+			&& (target->value < node->value || current->value < target->value))
+			target = current;
+		current = current->next;
+	}
+	return (target);
+}
+
+void ft_assign_target_nodes(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*current;
+
+	current = stack_b->head; // ! segfaults if !stack
+	while (current)
+	{
+		current->target = ft_find_target_node(stack_a, current);
 		current = current->next;
 	}
 }

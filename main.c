@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:20:21 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/13 19:33:06 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/19 22:06:01 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int	main(int argc, char *argv[])
 		ft_sort_four(stack_a, stack_b);
 	else if (numbers == 5)
 		ft_sort_five(stack_a, stack_b);
-	// else
-		// sort algorithm
+	else
+		ft_sort(stack_a, stack_b);
 		
 	ft_print_stack(stack_a, 'a');
 	ft_print_stack(stack_b, 'b');

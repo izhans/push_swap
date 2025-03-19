@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 09:24:22 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/13 18:40:02 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/19 22:41:08 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@
 // ##### structs #####
 typedef struct s_node
 {
+	int				value;
 	struct s_node	*prev;
 	struct s_node	*next;
-	int				value;
 	unsigned int	index;
+	struct s_node	*target;
 }	t_node;
 
 typedef struct s_stack
@@ -56,6 +57,7 @@ void	ft_rrr(t_stack *stack_a, t_stack *stack_b);
 void	ft_sort_three(t_stack *stack);
 void	ft_sort_four(t_stack *stack_a, t_stack *stack_b);
 void	ft_sort_five(t_stack *stack_a, t_stack *stack_b);
+void	ft_sort(t_stack *stack_a, t_stack *stack_b);
 
 // ##### utils #####
 void	ft_exit(void);
@@ -70,6 +72,7 @@ t_node	*ft_find_min(t_stack *stack);
 t_node	*ft_find_max(t_stack *stack);
 unsigned int	ft_stack_size(t_stack *stack);
 void	ft_assign_indexes(t_stack *stack);
+void	ft_assign_target_nodes(t_stack *stack_a, t_stack *stack_b);
 
 // rotate utils
 void	ft_cheapest_rotate_a(t_stack *stack, t_node *node);

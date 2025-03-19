@@ -13,7 +13,8 @@ SRCS =	main.c \
 		ft_split.c \
 		node_utils.c \
 		rotate_utils.c \
-		short_sorts.c
+		short_sorts.c \
+		ft_sort.c
 
 OBJS = $(SRCS:.c=.o)
 
