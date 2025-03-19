@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 09:24:22 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/19 22:41:08 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/20 00:34:23 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_node
 	struct s_node	*next;
 	unsigned int	index;
 	struct s_node	*target;
+	unsigned int	cost;
 }	t_node;
 
 typedef struct s_stack
@@ -73,6 +74,8 @@ t_node	*ft_find_max(t_stack *stack);
 unsigned int	ft_stack_size(t_stack *stack);
 void	ft_assign_indexes(t_stack *stack);
 void	ft_assign_target_nodes(t_stack *stack_a, t_stack *stack_b);
+void	ft_assign_costs(t_stack *stack);
+t_node	*ft_find_cheapest(t_stack *stack);
 
 // rotate utils
 void	ft_cheapest_rotate_a(t_stack *stack, t_node *node);
