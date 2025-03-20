@@ -6,11 +6,18 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:12:00 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/20 23:48:28 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/21 00:20:37 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int				ft_value_exists(t_stack *stack, int value);
+void			ft_new_node(t_stack *stack, int value);
+void			ft_print_stack(t_stack *stack, char c); // TODO delete
+void			ft_delete_stack(t_stack **stack);
+int				ft_stack_is_sorted(t_stack *stack);
+unsigned int	ft_stack_size(t_stack *stack);
 
 /**
  * @return 0 if value doesn't exist, 1 if it alredy exists
@@ -28,37 +35,32 @@ int	ft_value_exists(t_stack *stack, int value)
 			return (1);
 		node = node->next;
 	}
-	
 	return (0);
 }
 
-void ft_new_node(t_stack *stack, int value)
+void	ft_new_node(t_stack *stack, int value)
 {
-	t_node 				*new_node;
+	t_node				*new_node;
 	static unsigned int	index;
 
 	new_node = malloc(sizeof(t_node));
+	if (!new_node)
+		return (ft_free_and_exit(stack));
 	new_node->value = value;
 	new_node->next = NULL;
-	
 	if (!stack->head)
-	{
-		new_node->prev = NULL; // ? 1
 		stack->head = new_node;
-	}
 	else
-	{	
-		new_node->prev = stack->tail; // ? 1 esto seria NULL en el caso de !stack->head ?
 		stack->tail->next = new_node;
-	}
+	new_node->prev = stack->tail;
 	stack->tail = new_node;
 	new_node->index = index;
 	index++;
 }
 
-void ft_print_stack(t_stack *stack, char c)
+void	ft_print_stack(t_stack *stack, char c) // TODO delete
 {
-	t_node *current;
+	t_node	*current;
 
 	printf("stack_%c\n", c);
 	if (!stack)
@@ -66,7 +68,6 @@ void ft_print_stack(t_stack *stack, char c)
 		printf("no stack\n");
 		return ;
 	}
-	
 	current = stack->head;
 	while (current)
 	{
@@ -82,7 +83,7 @@ void ft_print_stack(t_stack *stack, char c)
 	printf("\n");
 }
 
-void ft_delete_stack(t_stack **stack)
+void	ft_delete_stack(t_stack **stack)
 {
 	t_node	*node;
 	t_node	*next;
@@ -98,26 +99,28 @@ void ft_delete_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-int ft_stack_is_sorted(t_stack *stack)
+/**
+ * si ha llegado al final de la lista, esta ordenado
+ */
+int	ft_stack_is_sorted(t_stack *stack)
 {
 	t_node	*node;
 
 	node = stack->head;
 	while (node->next && node->value < node->next->value)
-	{
 		node = node->next;
-	}
-
-	return (node->next == NULL); // si ha llegado al final de la lista, esta ordenado
+	return (node->next == NULL);
 }
 
-unsigned int ft_stack_size(t_stack *stack)
+unsigned int	ft_stack_size(t_stack *stack)
 {
 	unsigned int	size;
-	t_node 			*current;
+	t_node			*current;
 
 	size = 0;
-	current = stack->head; // ! segfaults if !stack
+	if (!stack)
+		return (0);
+	current = stack->head;
 	while (current)
 	{
 		size++;
