@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:12:00 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/20 23:33:42 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:48:28 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,38 +111,6 @@ int ft_stack_is_sorted(t_stack *stack)
 	return (node->next == NULL); // si ha llegado al final de la lista, esta ordenado
 }
 
-t_node *ft_find_min(t_stack *stack)
-{
-	t_node	*node;
-	t_node	*min;
-
-	node = stack->head;
-	min = node;
-	while (node)
-	{
-		if (node->value < min->value)
-			min = node;
-		node = node->next;
-	}
-	return (min);
-}
-
-t_node *ft_find_max(t_stack *stack)
-{
-	t_node	*node;
-	t_node	*max;
-
-	node = stack->head;
-	max = node;
-	while (node)
-	{
-		if (node->value > max->value)
-			max = node;
-		node = node->next;
-	}
-	return (max);
-}
-
 unsigned int ft_stack_size(t_stack *stack)
 {
 	unsigned int	size;
@@ -156,25 +124,4 @@ unsigned int ft_stack_size(t_stack *stack)
 		current = current->next;
 	}
 	return (size);
-}
-
-static unsigned int ft_get_total_cost(t_node *node)
-{
-	return (node->cost + node->target->cost);
-}
-
-t_node *ft_find_cheapest(t_stack *stack)
-{
-	t_node			*current;
-	t_node			*cheapest;
-
-	current = stack->head; // ! segfaults if !stack
-	cheapest = stack->head;
-	while (current)
-	{
-		if (ft_get_total_cost(current) < ft_get_total_cost(cheapest))
-			cheapest = current;
-		current = current->next;
-	}
-	return (cheapest);
 }
