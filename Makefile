@@ -13,6 +13,7 @@ SRCS =	main.c \
 		ft_split.c \
 		node_utils.c \
 		rotate_utils.c \
+		assign_node_data_utils.c \
 		short_sorts.c \
 		ft_sort.c
 
