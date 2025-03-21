@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:15:20 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/13 18:54:17 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/21 02:26:55 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,16 @@
  */
 void	ft_sort_three(t_stack *stack)
 {
-	t_node	*min;
 	t_node	*max;
 
-	min = ft_find_min(stack);
 	max = ft_find_max(stack);
 	while (!ft_stack_is_sorted(stack))
 	{
-		if (max == stack->tail) // solo hay que ordenar los 2 primeros numeros
+		if (max == stack->tail)
 			ft_sa(stack);
 		else if (max == stack->head)
 			ft_ra(stack);
-		else // max esta en medio
+		else
 			ft_rra(stack);
 	}
 }
@@ -67,4 +65,40 @@ void	ft_sort_five(t_stack *stack_a, t_stack *stack_b)
 	ft_assign_indexes(stack_a);
 	ft_sort_four(stack_a, stack_b);
 	ft_pa(stack_a, stack_b);
+}
+
+/**
+ * push to b until only 3 nodes remain in a
+ * sort a
+ * while b has nodes
+ * 	reassign indexes to nodes
+ * 	reassing target nodes
+ * 	reassing costs
+ * 	find the cheapest
+ * 	put cheapest and its target on the top
+ * 	push cheapest to a
+ * at the end rotate stack to have the min on top
+ */
+void	ft_sort(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*cheapest;
+	t_node	*first;
+
+	while (ft_stack_size(stack_a) > 3)
+		ft_pb(stack_a, stack_b);
+	ft_sort_three(stack_a);
+	while (stack_b->head)
+	{
+		ft_assign_indexes(stack_a);
+		ft_assign_indexes(stack_b);
+		ft_assign_target_nodes(stack_a, stack_b);
+		ft_assign_costs(stack_a);
+		ft_assign_costs(stack_b);
+		cheapest = ft_find_cheapest(stack_b);
+		ft_cheapest_rotate(stack_a, stack_b, cheapest);
+		ft_pa(stack_a, stack_b);
+	}
+	first = ft_find_min(stack_a);
+	ft_assign_indexes(stack_a);
+	ft_cheapest_rotate_a(stack_a, first);
 }
