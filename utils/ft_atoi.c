@@ -6,11 +6,11 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 03:16:18 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/23 01:05:39 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/23 12:37:12 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // TODO change name -> ft_init_arg ?
 // ! this function is getting many responsibilities

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_assign_data.c                                   :+:      :+:    :+:   */
+/*   assign_node_data_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 23:31:09 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/20 23:38:19 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/23 12:36:52 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void				ft_assign_indexes(t_stack *stack);
 void				ft_assign_target_nodes(t_stack *stack_a, t_stack *stack_b);

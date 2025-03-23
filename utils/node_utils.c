@@ -6,11 +6,11 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:12:00 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/21 00:20:37 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/23 12:37:01 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int				ft_value_exists(t_stack *stack, int value);
 void			ft_new_node(t_stack *stack, int value);

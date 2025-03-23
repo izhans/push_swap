@@ -6,11 +6,11 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 22:14:55 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/21 00:45:37 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/23 12:22:21 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	ft_push(t_stack *origin, t_stack *dest);
 

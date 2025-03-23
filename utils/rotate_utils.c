@@ -6,11 +6,11 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 15:18:22 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/20 01:02:55 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/23 12:37:06 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ft_cheapest_rotate_a(t_stack *stack, t_node *node)
 {

@@ -5,20 +5,32 @@ CFLAGS = -Wall -Werror -Wextra
 LIBFT_DIR = libft/
 LIBFT = $(addprefix $(LIBFT_DIR), libft.a)
 
+# src
 SRCS =	main.c \
+		sorts.c
+SRC_OBJ = $(SRCS:.c=.o)
+
+# movs
+MOVS_DIR = movs/
+MOVS_SRC = \
 		ft_push.c \
 		ft_swap.c \
 		ft_rotate.c \
-		ft_rev_rotate.c \
+		ft_rev_rotate.c
+MOVS_OBJ = $(MOVS_SRC:.c=.o)
+
+# utils
+UTILS_DIR = utils/
+UTILS_SRC = \
 		ft_atoi.c \
 		ft_exit.c \
 		node_utils.c \
 		rotate_utils.c \
 		assign_node_data_utils.c \
-		find_utils.c \
-		sorts.c
+		find_utils.c
+UTILS_OBJ = $(UTILS_SRC:.c=.o)
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRC_OBJ) $(addprefix $(MOVS_DIR), $(MOVS_OBJ)) $(addprefix $(UTILS_DIR), $(UTILS_OBJ))
 
 #### Rules ####
 # Declares rules
@@ -32,8 +44,14 @@ $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(FLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 # Compiles .c files into .o files
-$(OBJS): $(SRCS)
+$(SRC_OBJ): $(SRCS)
 	$(CC) $(FLAGS) -c $(SRCS)
+
+$(MOVS_OBJ): $(addprefix $(MOVS_DIR), $(MOVS_OBJ))
+	$(CC) $(FLAGS) -c $(addprefix $(MOVS_DIR), $(MOVS_OBJ))
+
+$(UTILS_OBJ): $(addprefix $(UTILS_DIR), $(UTILS_OBJ))
+	$(CC) $(FLAGS) -c $(addprefix $(UTILS_DIR), $(UTILS_OBJ))
 
 # Compiles libft
 $(LIBFT):

@@ -6,11 +6,11 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:01:20 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/21 00:40:36 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/23 12:22:25 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	ft_rev_rotate(t_stack *stack);
 

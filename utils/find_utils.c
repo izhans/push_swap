@@ -6,11 +6,11 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 23:45:36 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/20 23:48:04 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/23 12:36:56 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_node				*ft_find_min(t_stack *stack);
 t_node				*ft_find_max(t_stack *stack);

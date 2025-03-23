@@ -6,11 +6,11 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 12:57:42 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/12 13:49:16 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/23 12:37:17 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void ft_exit()
 {
