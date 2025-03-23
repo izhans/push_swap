@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:20:21 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/21 02:12:30 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/23 00:57:39 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_init_stack_a(char *argv[], int split, t_stack **stack_a)
 	(*stack_a)->tail = NULL;
 	while (*argv)
 	{
-		ft_atoi(*argv, *stack_a);
+		ft_atoi2(*argv, *stack_a);
 		argv++;
 	}
 	if (split)

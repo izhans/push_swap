@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 09:24:22 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/20 01:00:46 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/23 01:26:33 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define PUSH_SWAP_H
 // ##### includes #####
 # include <stdio.h> // TODO delete
+# include "libft/libft.h"
 // utils
 # include <stdlib.h>
 # include <limits.h>
@@ -82,8 +83,6 @@ void	ft_cheapest_rotate_a(t_stack *stack, t_node *node);
 void	ft_cheapest_rotate(t_stack *stack_a, t_stack *stack_b, t_node *cheapest);
 
 // libft utils
-char	**ft_split(char const *s, char c);
-int		ft_atoi(char *str, t_stack *stack);
-size_t	ft_strlen(const char *s);
+int		ft_atoi2(char *str, t_stack *stack);
 
 #endif

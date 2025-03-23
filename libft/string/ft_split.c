@@ -6,62 +6,16 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 04:35:47 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/05 15:37:02 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/21 14:56:32 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libft.h"
 
 static size_t	ft_get_number_of_parts(char const *s, char c);
 static size_t	ft_count_parts(char const *str, char c, size_t i, size_t len);
 static char		**ft_alloc(char **strs, char const *str, size_t parts, char c);
 static char		**ft_free(char **strs, size_t i);
-
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	size_t	i;
-
-	if (size == 0)
-		return (ft_strlen(src));
-	i = 0;
-	while (src[i] && i < size -1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t	str_len;
-	char	*substr;
-
-	str_len = ft_strlen(s);
-	if (start >= str_len)
-	{
-		len = 0;
-		start = 0;
-	}
-	else if (len > str_len - start)
-		len = str_len - start;
-	substr = malloc((len + 1) * sizeof(char));
-	if (substr == NULL)
-		return (NULL);
-	ft_strlcpy(substr, s + start, len + 1);
-	return (substr);
-}
 
 char	**ft_split(char const *s, char c)
 {
