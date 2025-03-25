@@ -6,14 +6,15 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:20:21 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/25 20:45:54 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/25 23:06:50 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		ft_init_stack_a(char *argv[], int split, t_stack **stack_a);
-void		ft_exec_algorithm(t_stack *stack_a, t_stack *stack_b);
+static void	ft_init_stack_a(char *argv[], int split, t_stack **stack_a);
+static void	ft_free(t_stack *stack_a, char **splited);
+static void	ft_exec_algorithm(t_stack *stack_a, t_stack *stack_b);
 
 /**
  * @brief 	creates stacks, populates stack_a with the program input,
@@ -37,7 +38,7 @@ int	main(int argc, char *argv[])
 	}
 	stack_b = malloc(sizeof(t_stack));
 	if (!stack_b)
-		return (ft_free_and_exit(stack_a), 1);
+		return (ft_free_stack_and_exit(stack_a), 1);
 	stack_b->head = NULL;
 	stack_b->tail = NULL;
 	ft_exec_algorithm(stack_a, stack_b);
@@ -47,12 +48,13 @@ int	main(int argc, char *argv[])
 }
 
 /**
- * creates and populates stack_a
+ * @brief creates and populates stack_a
  */
-void	ft_init_stack_a(char *argv[], int split, t_stack **stack_a)
+static void	ft_init_stack_a(char *argv[], int split, t_stack **stack_a)
 {
 	char	**splited;
 
+	splited = NULL;
 	if (split)
 	{
 		splited = ft_split(*argv, ' ');
@@ -62,19 +64,25 @@ void	ft_init_stack_a(char *argv[], int split, t_stack **stack_a)
 	}
 	*stack_a = malloc(sizeof(t_stack));
 	if (*stack_a == NULL)
-		return (ft_exit());
+		return (ft_free(*stack_a, splited));
 	(*stack_a)->head = NULL;
 	(*stack_a)->tail = NULL;
 	while (*argv)
 	{
-		ft_atoi2(*argv, *stack_a); // TODO check valgrind here
+		if(!ft_add_number_to_stack(*argv, *stack_a))
+			return (ft_free(*stack_a, splited));
 		argv++;
 	}
-	if (split)
-		ft_free_str_array(splited);
+	ft_free_str_array(splited);
 }
 
-void	ft_exec_algorithm(t_stack *stack_a, t_stack *stack_b)
+static void	ft_free(t_stack *stack_a, char **splited)
+{
+	ft_free_str_array(splited);
+	ft_free_stack_and_exit(stack_a);
+}
+
+static void	ft_exec_algorithm(t_stack *stack_a, t_stack *stack_b)
 {
 	unsigned int	numbers;
 

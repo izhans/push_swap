@@ -41,17 +41,17 @@ all: $(NAME)
 
 # Compiles .o files into executable
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(FLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 # Compiles .c files into .o files
 $(SRC_OBJ): $(SRCS)
-	$(CC) $(FLAGS) -c $(SRCS)
+	$(CC) $(CFLAGS) -c $(SRCS)
 
 $(MOVS_OBJ): $(addprefix $(MOVS_DIR), $(MOVS_OBJ))
-	$(CC) $(FLAGS) -c $(addprefix $(MOVS_DIR), $(MOVS_OBJ))
+	$(CC) $(CFLAGS) -c $(addprefix $(MOVS_DIR), $(MOVS_OBJ))
 
 $(UTILS_OBJ): $(addprefix $(UTILS_DIR), $(UTILS_OBJ))
-	$(CC) $(FLAGS) -c $(addprefix $(UTILS_DIR), $(UTILS_OBJ))
+	$(CC) $(CFLAGS) -c $(addprefix $(UTILS_DIR), $(UTILS_OBJ))
 
 # Compiles libft
 $(LIBFT):

@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 09:24:22 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/23 01:26:33 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/25 22:20:02 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ void	ft_sort(t_stack *stack_a, t_stack *stack_b);
 
 // ##### utils #####
 void	ft_exit(void);
-void	ft_free_and_exit(t_stack *stack);
+void	ft_free_stack_and_exit(t_stack *stack);
 // stack utils
 int		ft_value_exists(t_stack *stack, int value);
-void	ft_new_node(t_stack *stack, int value);
+int		ft_new_node(t_stack *stack, int value);
 void	ft_print_stack(t_stack *stack, char c);
 void	ft_delete_stack(t_stack **stack);
 int		ft_stack_is_sorted(t_stack *stack);
@@ -83,6 +83,6 @@ void	ft_cheapest_rotate_a(t_stack *stack, t_node *node);
 void	ft_cheapest_rotate(t_stack *stack_a, t_stack *stack_b, t_node *cheapest);
 
 // libft utils
-int		ft_atoi2(char *str, t_stack *stack);
+int		ft_add_number_to_stack(char *str, t_stack *stack);
 
 #endif

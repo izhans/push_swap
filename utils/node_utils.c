@@ -6,14 +6,14 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:12:00 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/23 18:06:42 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/25 21:57:17 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 int				ft_value_exists(t_stack *stack, int value);
-void			ft_new_node(t_stack *stack, int value);
+int				ft_new_node(t_stack *stack, int value);
 void			ft_print_stack(t_stack *stack, char c); // TODO delete
 void			ft_delete_stack(t_stack **stack);
 int				ft_stack_is_sorted(t_stack *stack);
@@ -38,14 +38,14 @@ int	ft_value_exists(t_stack *stack, int value)
 	return (0);
 }
 
-void	ft_new_node(t_stack *stack, int value)
+int	ft_new_node(t_stack *stack, int value)
 {
 	t_node				*new_node;
 	static unsigned int	index = 0;
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-		return (ft_free_and_exit(stack));
+		return (0);
 	new_node->value = value;
 	new_node->next = NULL;
 	if (!stack->head)
@@ -56,6 +56,7 @@ void	ft_new_node(t_stack *stack, int value)
 	stack->tail = new_node;
 	new_node->index = index;
 	index++;
+	return (1);
 }
 
 void	ft_print_stack(t_stack *stack, char c) // TODO delete
