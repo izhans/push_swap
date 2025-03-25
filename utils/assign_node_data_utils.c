@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 23:31:09 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/23 12:36:52 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/25 23:49:01 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_assign_indexes(t_stack *stack)
 	t_node			*current;
 
 	index = 0;
-	current = stack->head; // ! segfaults if !stack
+	current = stack->head;
 	while (current)
 	{
 		current->index = index;

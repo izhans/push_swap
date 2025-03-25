@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:20:21 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/25 23:06:50 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/25 23:26:39 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static void	ft_init_stack_a(char *argv[], int split, t_stack **stack_a)
 	(*stack_a)->tail = NULL;
 	while (*argv)
 	{
-		if(!ft_add_number_to_stack(*argv, *stack_a))
+		if (!ft_add_number_to_stack(*argv, *stack_a))
 			return (ft_free(*stack_a, splited));
 		argv++;
 	}
