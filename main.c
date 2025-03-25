@@ -6,14 +6,14 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:20:21 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/23 00:57:39 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/25 20:45:54 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_init_stack_a(char *argv[], int split, t_stack **stack_a);
-void	ft_exec_algorithm(t_stack *stack_a, t_stack *stack_b);
+void		ft_init_stack_a(char *argv[], int split, t_stack **stack_a);
+void		ft_exec_algorithm(t_stack *stack_a, t_stack *stack_b);
 
 /**
  * @brief 	creates stacks, populates stack_a with the program input,
@@ -56,22 +56,22 @@ void	ft_init_stack_a(char *argv[], int split, t_stack **stack_a)
 	if (split)
 	{
 		splited = ft_split(*argv, ' ');
-		if (*splited == NULL)
+		if (splited == NULL || *splited == NULL)
 			ft_exit();
 		argv = splited;
 	}
 	*stack_a = malloc(sizeof(t_stack));
-	if (!*stack_a)
-		return (ft_free_and_exit(*stack_a));
+	if (*stack_a == NULL)
+		return (ft_exit());
 	(*stack_a)->head = NULL;
 	(*stack_a)->tail = NULL;
 	while (*argv)
 	{
-		ft_atoi2(*argv, *stack_a);
+		ft_atoi2(*argv, *stack_a); // TODO check valgrind here
 		argv++;
 	}
 	if (split)
-		free(splited);
+		ft_free_str_array(splited);
 }
 
 void	ft_exec_algorithm(t_stack *stack_a, t_stack *stack_b)

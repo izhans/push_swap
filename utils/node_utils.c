@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:12:00 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/23 12:37:01 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/23 18:06:42 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_value_exists(t_stack *stack, int value)
 void	ft_new_node(t_stack *stack, int value)
 {
 	t_node				*new_node;
-	static unsigned int	index;
+	static unsigned int	index = 0;
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)

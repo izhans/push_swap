@@ -61,6 +61,7 @@ MEMORY_FOLDER = memory/
 MEMORY_SRCS = \
 			ft_bzero.c \
 			ft_calloc.c \
+			ft_free_str_array.c \
 			ft_memchr.c \
 			ft_memcmp.c \
 			ft_memcpy.c \
