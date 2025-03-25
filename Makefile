@@ -22,9 +22,9 @@ MOVS_OBJ = $(MOVS_SRC:.c=.o)
 # utils
 UTILS_DIR = utils/
 UTILS_SRC = \
-		ft_atoi.c \
+		ft_add_number_to_stack.c \
 		ft_exit.c \
-		node_utils.c \
+		stack_utils.c \
 		rotate_utils.c \
 		assign_node_data_utils.c \
 		find_utils.c
