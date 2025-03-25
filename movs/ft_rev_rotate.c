@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:01:20 by isastre-          #+#    #+#             */
-/*   Updated: 2025/03/23 12:22:25 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/03/25 23:22:01 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@ static void	ft_rev_rotate(t_stack *stack);
 void	ft_rra(t_stack *stack_a)
 {
 	ft_rev_rotate(stack_a);
-	printf("rra\n");
+	ft_putendl("rra");
 }
 
 void	ft_rrb(t_stack *stack_b)
 {
 	ft_rev_rotate(stack_b);
-	printf("rrb\n");
+	ft_putendl("rrb");
 }
 
 void	ft_rrr(t_stack *stack_a, t_stack *stack_b)
 {
 	ft_rev_rotate(stack_a);
 	ft_rev_rotate(stack_b);
-	printf("rrr\n");
+	ft_putendl("rrr");
 }
 
 /**
